@@ -1,5 +1,6 @@
 import { Image } from '@chakra-ui/image';
 import { Box, Heading, Text, VStack } from '@chakra-ui/layout';
+import { Tooltip } from '@chakra-ui/tooltip';
 interface Props {
 	id: string;
 	title: string;
@@ -29,7 +30,8 @@ function SongCard(props: Props) {
 			<VStack>
 				<Image rounded="lg" shadow="base" src={props.cover} alt="alt" />
 				<Box w="100%" alignItems="left">
-					<Heading  m="2" fontSize="xl">{props.title.split(" - ")[1]}</Heading>
+					<Tooltip label={props.title.split(" - ")[1]}>
+					<Heading noOfLines={1} m="2" fontSize="xl">{props.title.split(" - ")[1]}</Heading></Tooltip>
 					<Text m="2" >{props.title.split(" - ")[0]}</Text>
 				</Box>
 			</VStack>
